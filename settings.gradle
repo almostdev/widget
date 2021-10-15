@@ -1,0 +1,13 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "http://nexus.band.campmobile.net:10003/nexus/content/groups/public"
+            allowInsecureProtocol(true)
+        }
+    }
+}
+rootProject.name = "WidgetHarness"
+include ':app'
