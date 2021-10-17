@@ -18,6 +18,7 @@ class WidgetConfigureActivity : DaggerAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setResult(RESULT_CANCELED)
 
         appWidgetId =
             intent.extras?.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId) ?: appWidgetId

@@ -1,14 +1,14 @@
 package com.almostdev.harness.widget.presenter
 
+import com.almostdev.harness.widget.usecase.Mission
 import org.threeten.bp.LocalDate
+import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.temporal.WeekFields
 import java.util.*
 
-class MissionViewModel {
-    var title: String = ""
-    var subTitle: String = ""
-    var startDate: LocalDate = LocalDate.now().with(WeekFields.of(Locale.getDefault()).dayOfWeek(), 1)
-    var endDate: LocalDate = LocalDate.now().with(WeekFields.of(Locale.getDefault()).dayOfWeek(), 7)
-
-
+class MissionViewModel(mission: Mission) {
+    var title: String = mission.title
+    var subTitle: String = "${mission.frequency}, ${mission.startAt.format(DateTimeFormatter.ISO_DATE)} - ${mission.endAt.format(DateTimeFormatter.ISO_DATE)}"
+    var startDate: LocalDate = mission.startAt
+    var endDate: LocalDate = mission.endAt
 }

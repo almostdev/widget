@@ -1,11 +1,7 @@
 package com.almostdev.harness.widget.usecase
 
-class GetMissionUseCase(val outputPort: OutputPort) {
-    fun execute() {
-
-    }
-
-    interface OutputPort {
-        fun onSelectMission(mission: Mission);
+class GetMissionUseCase {
+    fun execute(userNo: Long, outputPort : (Mission) -> Unit) {
+        outputPort.invoke(Mission("testMission", 1))
     }
 }
