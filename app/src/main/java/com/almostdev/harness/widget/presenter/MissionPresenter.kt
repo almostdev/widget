@@ -19,11 +19,8 @@ class MissionPresenter(
         val rootView = RemoteViews(context.packageName, R.layout.widget_weekly)
         rootView.setTextViewText(R.id.title_text_view, missionViewModel.title)
         rootView.setTextViewText(R.id.subtitle_text_view, missionViewModel.subTitle)
-
-        val pendingIntent: PendingIntent = Intent(context, WidgetConfigureActivity::class.java)
-            .let { PendingIntent.getActivity(context, 0, it, 0) }
-
-        rootView.setOnClickPendingIntent(R.id.container, pendingIntent)
+        rootView.setOnClickPendingIntent(R.id.menu_view, Intent(context, WidgetConfigureActivity::class.java)
+            .let { PendingIntent.getActivity(context, 0, it, 0) })
 
         // Tell the AppWidgetManager to perform an update on the current app widget
         appWidgetManager.updateAppWidget(widgetId, rootView)

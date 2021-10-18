@@ -10,10 +10,10 @@ import dagger.android.AndroidInjection
 import javax.inject.Inject
 import javax.inject.Named
 
-class WidgetProvider : AppWidgetProvider(){
+class WidgetProvider : AppWidgetProvider() {
 
-    @Inject
-    @Named("userNo")
+    @JvmField
+    @field:[Inject Named("userNo")]
     var userNo: Long = 0L
 
     @Inject
@@ -23,8 +23,8 @@ class WidgetProvider : AppWidgetProvider(){
     lateinit var missionPresenter: MissionPresenter
 
     override fun onReceive(context: Context, intent: Intent) {
-        super.onReceive(context, intent)
         AndroidInjection.inject(this, context)
+        super.onReceive(context, intent)
         val appWidgetId = intent.getIntExtra(
             AppWidgetManager.EXTRA_APPWIDGET_ID,
             AppWidgetManager.INVALID_APPWIDGET_ID
